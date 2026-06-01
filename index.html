@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Calificaciones - Robots, Ciencia y Ficción</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="background-grid"></div>
+    <div class="glowing-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <header class="app-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <i class="fa-solid fa-robot logo-icon"></i>
+                <div class="logo-text">
+                    <h1>Robots, Ciencia y Ficción</h1>
+                    <p class="subtitle">Universidad del Valle - Sede Tuluá</p>
+                </div>
+            </div>
+            <button id="theme-toggle-btn" class="icon-btn" title="Cambiar tema" aria-label="Cambiar tema de la página">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="search-section">
+            <div class="search-card">
+                <h2>Portal de Calificaciones</h2>
+                <p class="section-desc">Ingresa tu código de estudiante para consultar tus notas finales, promedios y la retroalimentación de las actividades en clase.</p>
+                
+                <form id="search-form" class="search-form" onsubmit="event.preventDefault();">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-id-card input-icon"></i>
+                        <input type="text" id="student-code-input" placeholder="Ej. 202569309" required autocomplete="off" aria-label="Código de Estudiante">
+                        <button type="button" id="clear-btn" class="clear-btn" style="display: none;" title="Limpiar búsqueda" aria-label="Limpiar campo de texto">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <button type="submit" id="search-btn" class="btn btn-primary">
+                        <span>Buscar</span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <div id="search-error-msg" class="search-error-msg" style="display: none;"></div>
+            </div>
+        </section>
+
+        <!-- Welcome and Instructions (shown before searching) -->
+        <section id="welcome-container" class="welcome-section">
+            <div class="info-card">
+                <h3><i class="fa-solid fa-circle-info"></i> Actividades Evaluadas</h3>
+                <p>En este portal podrás consultar el estado de cinco actividades prácticas clave del semestre:</p>
+                <div class="activities-grid">
+                    <div class="act-info-box">
+                        <h4><i class="fa-solid fa-gavel text-tribunal"></i> 1. Tribunal de Robótica</h4>
+                        <p class="act-desc">Debate y análisis ético sobre dilemas de las Leyes de Asimov aplicadas a la robótica industrial (médica, manufactura y transición social).</p>
+                    </div>
+                    <div class="act-info-box">
+                        <h4><i class="fa-solid fa-palette text-comic"></i> 2. Cómic con IA Generativa</h4>
+                        <p class="act-desc">Creación de una historia de ciencia ficción (6-8 paneles) utilizando modelos de lenguaje y generadores de imágenes, documentando prompts en una bitácora.</p>
+                    </div>
+                    <div class="act-info-box">
+                        <h4><i class="fa-solid fa-rocket text-cohete"></i> 3. Lanzamiento de Cohete</h4>
+                        <p class="act-desc">Construcción y lanzamiento práctico del cohete de agua en muestra en vivo para verificar el vuelo satisfactorio.</p>
+                    </div>
+                    <div class="act-info-box">
+                        <h4><i class="fa-solid fa-gamepad text-tragamonedas"></i> 4. Robot Tragamonedas</h4>
+                        <p class="act-desc">Construcción y entrega del prototipo funcional del robot tragamonedas.</p>
+                    </div>
+                    <div class="act-info-box">
+                        <h4><i class="fa-solid fa-microchip text-tinkercad"></i> 5. Actividad Tinkercad</h4>
+                        <p class="act-desc">Diseño, modelado y simulación de circuitos en la plataforma virtual Tinkercad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Section (hidden by default) -->
+        <section id="result-container" class="result-section" style="display: none;">
+            
+            <!-- Tab Navigation -->
+            <div class="tabs-container">
+                <button type="button" id="tab-tribunal" class="tab-btn active">
+                    <i class="fa-solid fa-scale-balanced"></i> <span>Tribunal de Robótica</span>
+                </button>
+                <button type="button" id="tab-comic" class="tab-btn">
+                    <i class="fa-solid fa-images"></i> <span>Cómic con IA</span>
+                </button>
+                <button type="button" id="tab-cohete" class="tab-btn">
+                    <i class="fa-solid fa-rocket"></i> <span>Lanzamiento de Cohete</span>
+                </button>
+                <button type="button" id="tab-tragamonedas" class="tab-btn">
+                    <i class="fa-solid fa-gamepad"></i> <span>Robot Tragamonedas</span>
+                </button>
+                <button type="button" id="tab-tinkercad" class="tab-btn">
+                    <i class="fa-solid fa-microchip"></i> <span>Tinkercad</span>
+                </button>
+            </div>
+
+            <div class="result-layout">
+                
+                <!-- Main Info Card -->
+                <div class="card result-card main-info-card">
+                    <div class="student-header">
+                        <div class="badge-row">
+                            <span class="badge badge-course"><i class="fa-solid fa-graduation-cap"></i> Robótica</span>
+                            <span id="student-program-badge" class="badge badge-program">Programa</span>
+                            <span class="badge badge-average"><i class="fa-solid fa-star"></i> Promedio: <strong id="student-average">0.0</strong></span>
+                        </div>
+                        <h3 id="student-name">Nombre del Estudiante</h3>
+                        <p class="student-meta">
+                            <span><i class="fa-solid fa-fingerprint"></i> Código: <strong id="student-code">0000000</strong></span>
+                            <span class="meta-separator">|</span>
+                            <span><i class="fa-solid fa-envelope"></i> <span id="student-email">correo@correounivalle.edu.co</span></span>
+                        </p>
+                    </div>
+
+                    <div class="feedback-box">
+                        <h4 id="feedback-title"><i class="fa-solid fa-comment-dots"></i> Retroalimentación de la Actividad</h4>
+                        <blockquote id="student-feedback">
+                            Comentarios detallados del profesor acerca de la entrega del grupo.
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- Score Sidebar Card -->
+                <div class="card result-card score-card">
+                    <h4 id="score-card-title">Calificación Final</h4>
+                    
+                    <div class="radial-score-container">
+                        <svg class="radial-progress" viewBox="0 0 120 120">
+                            <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+                            <circle id="radial-bar" class="radial-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+                        </svg>
+                        <div class="score-display">
+                            <span id="score-val" class="score-number">0.0</span>
+                            <span class="score-max">/ 5.0</span>
+                        </div>
+                    </div>
+
+                    <div id="performance-badge-container" class="performance-badge">
+                        Sobresaliente
+                    </div>
+
+                    <div class="rubric-breakdown">
+                        <h5>Rendimiento por Rúbrica</h5>
+                        <div id="rubric-indicators">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- No Submission Section (hidden by default - used if both are missing, but handled per-tab now) -->
+        <section id="no-submission-container" class="result-section" style="display: none;">
+            <div class="card no-submission-card">
+                <div class="warning-icon-wrapper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3>Actividad No Entregada</h3>
+                <p class="student-name-warning" id="no-sub-student-name">Nombre del Estudiante</p>
+                <p class="student-meta justify-center">
+                    <span><i class="fa-solid fa-fingerprint"></i> Código: <strong id="no-sub-student-code">0000000</strong></span>
+                </p>
+                <div class="warning-details">
+                    <p>No se encontró registro de tu participación o entrega en esta actividad para este estudiante.</p>
+                    <p class="warning-instruction">Si consideras que esto es un error, por favor ponte en contacto directo con el docente para validar tu caso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Card (hidden by default) -->
+        <section id="error-container" class="error-section" style="display: none;">
+            <div class="card error-card">
+                <i class="fa-solid fa-circle-question error-icon"></i>
+                <h3>Estudiante No Encontrado</h3>
+                <p>El código ingresado no coincide con ningún estudiante registrado en el listado de este curso.</p>
+                <p class="error-tip">Por favor verifica que hayas digitado correctamente tus 9 números (Ej: 202569309).</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Universidad del Valle - Sede Tuluá. Diseñado para fines educativos de la cátedra de Robótica.</p>
+            <p class="tech-stack">Construido con <i class="fa-solid fa-heart text-accent"></i> en HTML, CSS y JS.</p>
+        </div>
+    </footer>
+
+    <!-- Load Student Data First, then Lógica App -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
