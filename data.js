@@ -1,6 +1,34 @@
 // Datos de calificaciones y retroalimentación humanizados para 5 actividades
 const STUDENT_DATA = [
   {
+    "codigo": "202500000",
+    "nombre": "ESTUDIANTE DE PRUEBA (DEMO)",
+    "correo": "estudiante.prueba@correounivalle.edu.co",
+    "programa": "3743",
+    "notas": {
+      "tribunal": {
+        "nota": 4.5,
+        "retroalimentacion": "Excelente desempeño en el debate ético sobre las leyes de la robótica aplicadas a la industria médica."
+      },
+      "comic": {
+        "nota": 4.2,
+        "retroalimentacion": "Muy buena narrativa en el cómic de ciencia ficción. Se recomienda detallar más la bitácora de prompts en futuras entregas."
+      },
+      "cohete": {
+        "nota": 5.0,
+        "retroalimentacion": "El cohete de agua voló satisfactoriamente en la muestra práctica en vivo."
+      },
+      "tragamonedas": {
+        "nota": 4.0,
+        "retroalimentacion": "Entregó el prototipo funcional del robot tragamonedas a tiempo."
+      },
+      "tinkercad": {
+        "nota": 4.8,
+        "retroalimentacion": "Excelente simulación de circuitos en Tinkercad, mostrando una correcta interconexión y lógica de control."
+      }
+    }
+  },
+  {
     "codigo": "202569309",
     "nombre": "CASTILLO LONDOÑO JUAN DAVID",
     "correo": "juan.castillo.londono@correounivalle.edu.co",
