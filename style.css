@@ -1035,6 +1035,25 @@ body {
 
 .modal-content .input-wrapper {
     margin-bottom: 20px;
+    width: 100%;
+}
+
+#teacher-password-input {
+    width: 100%;
+    padding: 14px 45px 14px 48px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-card);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    outline: none;
+}
+
+#teacher-password-input:focus {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 12px rgba(185, 43, 255, 0.25);
 }
 
 .close-btn {
