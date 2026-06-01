@@ -931,3 +931,470 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Header Actions & Secondary Button */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1.5px solid var(--border-card);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-primary);
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+.light-theme .btn-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    cursor: pointer;
+}
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+    cursor: pointer;
+}
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Modal Window styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    max-width: 420px;
+    width: 90%;
+    position: relative;
+    padding: 35px 30px;
+    text-align: center;
+    border-top: 3px solid var(--accent-secondary);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.modal-content .input-wrapper {
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--accent-danger);
+}
+
+/* Docente Dashboard styles */
+.dashboard-header {
+    border-left: 4px solid var(--accent-secondary);
+    margin-bottom: 25px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.dashboard-title-row h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dashboard-actions .btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 550px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 950px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 25px;
+}
+
+.stat-icon {
+    font-size: 2.2rem;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.text-accent-primary { color: var(--accent-primary); }
+.text-accent-success { color: var(--accent-success); }
+.text-accent-warning { color: var(--accent-warning); }
+.text-accent-danger { color: var(--accent-danger); }
+
+/* Grade Table styles */
+.table-card {
+    padding: 25px 0;
+    overflow: hidden;
+}
+
+.table-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 20px 25px;
+    border-bottom: 1px solid var(--border-card);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.table-header-row h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.table-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+}
+
+.table-search-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+#table-search-input {
+    width: 100%;
+    padding: 8px 12px 8px 38px;
+    border-radius: 8px;
+    border: 1.2px solid var(--border-card);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    font-family: var(--font-body);
+    outline: none;
+}
+
+#table-search-input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 8px var(--glow-color);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+#docente-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    text-align: left;
+}
+
+#docente-table th, 
+#docente-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-card);
+}
+
+#docente-table th {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.light-theme #docente-table th {
+    background-color: rgba(0, 0, 0, 0.005);
+}
+
+#docente-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
+.light-theme #docente-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* Table cells styles */
+.cell-code {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cell-name {
+    font-weight: 500;
+}
+
+.cell-grade {
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    position: relative;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.cell-grade:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 0 1px var(--accent-primary);
+}
+
+.light-theme .cell-grade:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.cell-grade-editing input {
+    width: 50px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--accent-primary);
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    outline: none;
+}
+
+.grade-fail {
+    color: var(--accent-danger);
+}
+
+.cell-average {
+    font-weight: 800;
+    text-align: center;
+}
+
+.edit-hint-box {
+    padding: 15px 25px 0 25px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt !important;
+    }
+    
+    .background-grid, 
+    .glowing-orbs, 
+    .app-header, 
+    .search-section, 
+    #welcome-container, 
+    #theme-toggle-btn,
+    .dashboard-actions,
+    .table-search-wrapper,
+    .edit-hint-box,
+    .app-footer,
+    .modal,
+    #result-container,
+    #no-submission-container,
+    #error-container {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    #docente-dashboard {
+        display: block !important;
+    }
+    
+    .dashboard-header {
+        border-left: 3px solid #000000 !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .dashboard-header h3 {
+        font-size: 18pt !important;
+        color: #000000 !important;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr !important;
+        margin-bottom: 30px !important;
+        gap: 15px !important;
+    }
+    
+    .stat-card {
+        border: 1px solid #cccccc !important;
+        padding: 10px !important;
+        border-radius: 4px !important;
+    }
+    
+    .stat-icon {
+        font-size: 16pt !important;
+        color: #000000 !important;
+    }
+    
+    .stat-value {
+        font-size: 14pt !important;
+        color: #000000 !important;
+    }
+    
+    #docente-table {
+        font-size: 9pt !important;
+        border: 1px solid #999999 !important;
+        page-break-inside: auto;
+    }
+    
+    #docente-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    #docente-table th, 
+    #docente-table td {
+        border: 1px solid #cccccc !important;
+        padding: 8px 10px !important;
+        color: #000000 !important;
+    }
+    
+    #docente-table th {
+        background-color: #f0f0f0 !important;
+        font-weight: bold !important;
+    }
+    
+    .grade-fail {
+        color: #ff0000 !important;
+        font-weight: bold !important;
+    }
+}

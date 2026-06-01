@@ -385,4 +385,324 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }, 100);
     }
+
+    // ==========================================
+    // SECCIÓN DOCENTE: LÓGICA Y ESTADÍSTICAS
+    // ==========================================
+
+    // DOM Elements for Docente
+    const docenteLoginTrigger = document.getElementById("docente-login-trigger");
+    const loginModal = document.getElementById("login-modal");
+    const closeLoginBtn = document.getElementById("close-login-btn");
+    const loginForm = document.getElementById("login-form");
+    const passwordInput = document.getElementById("teacher-password-input");
+    const loginErrorMsg = document.getElementById("login-error-msg");
+
+    const docenteDashboard = document.getElementById("docente-dashboard");
+    const logoutBtn = document.getElementById("logout-btn");
+    const exportExcelBtn = document.getElementById("export-excel-btn");
+    const printReportBtn = document.getElementById("print-report-btn");
+    const tableSearchInput = document.getElementById("table-search-input");
+    const docenteTableBody = document.getElementById("docente-table-body");
+
+    // Stats Labels
+    const statTotalStudents = document.getElementById("stat-total-students");
+    const statCourseAverage = document.getElementById("stat-course-average");
+    const statPassRate = document.getElementById("stat-pass-rate");
+    const statTopActivity = document.getElementById("stat-top-activity");
+
+    // Check existing session
+    if (sessionStorage.getItem("docente_session") === "true") {
+        showTeacherDashboard();
+    }
+
+    docenteLoginTrigger.addEventListener("click", () => {
+        if (sessionStorage.getItem("docente_session") === "true") {
+            showTeacherDashboard();
+        } else {
+            loginModal.style.display = "flex";
+            passwordInput.value = "";
+            loginErrorMsg.style.display = "none";
+            passwordInput.focus();
+        }
+    });
+
+    closeLoginBtn.addEventListener("click", () => {
+        loginModal.style.display = "none";
+    });
+
+    // Close modal on clicking outside content
+    loginModal.addEventListener("click", (e) => {
+        if (e.target === loginModal) {
+            loginModal.style.display = "none";
+        }
+    });
+
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const pwd = passwordInput.value.trim();
+        if (pwd === "docente2026") {
+            sessionStorage.setItem("docente_session", "true");
+            loginModal.style.display = "none";
+            showTeacherDashboard();
+        } else {
+            loginErrorMsg.style.display = "block";
+            passwordInput.focus();
+        }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+        sessionStorage.removeItem("docente_session");
+        docenteDashboard.style.display = "none";
+        welcomeContainer.style.display = "block";
+        searchInput.value = "";
+        clearBtn.style.display = "none";
+    });
+
+    function showTeacherDashboard() {
+        // Hide student elements
+        welcomeContainer.style.display = "none";
+        resultContainer.style.display = "none";
+        noSubmissionContainer.style.display = "none";
+        errorContainer.style.display = "none";
+        searchErrorMsg.style.display = "none";
+
+        // Show dashboard
+        docenteDashboard.style.display = "block";
+        
+        // Calculate metrics and populate table
+        calculateCourseStatistics();
+        renderConsolidatedTable();
+    }
+
+    function calculateCourseStatistics() {
+        if (typeof STUDENT_DATA === "undefined" || STUDENT_DATA.length === 0) return;
+
+        const total = STUDENT_DATA.length;
+        let sumAverages = 0;
+        let passedCount = 0;
+
+        let sumTribunal = 0;
+        let sumComic = 0;
+        let sumCohete = 0;
+        let sumTragamonedas = 0;
+        let sumTinkercad = 0;
+
+        STUDENT_DATA.forEach(s => {
+            const studentAvg = (s.notas.tribunal.nota +
+                                s.notas.comic.nota +
+                                s.notas.cohete.nota +
+                                s.notas.tragamonedas.nota +
+                                s.notas.tinkercad.nota) / 5.0;
+            sumAverages += studentAvg;
+            if (studentAvg >= 3.0) passedCount++;
+
+            sumTribunal += s.notas.tribunal.nota;
+            sumComic += s.notas.comic.nota;
+            sumCohete += s.notas.cohete.nota;
+            sumTragamonedas += s.notas.tragamonedas.nota;
+            sumTinkercad += s.notas.tinkercad.nota;
+        });
+
+        const courseAverage = sumAverages / total;
+        const passRate = (passedCount / total) * 100;
+
+        // Activity averages
+        const actAverages = [
+            { name: "Tribunal", avg: sumTribunal / total },
+            { name: "Cómic con IA", avg: sumComic / total },
+            { name: "Lanzamiento Cohete", avg: sumCohete / total },
+            { name: "Robot Tragamonedas", avg: sumTragamonedas / total },
+            { name: "Tinkercad", avg: sumTinkercad / total }
+        ];
+
+        // Find activity with highest average
+        let bestAct = actAverages[0];
+        actAverages.forEach(act => {
+            if (act.avg > bestAct.avg) bestAct = act;
+        });
+
+        // Set text in UI
+        statTotalStudents.textContent = total;
+        statCourseAverage.textContent = courseAverage.toFixed(2);
+        statPassRate.textContent = `${passRate.toFixed(1)}%`;
+        statTopActivity.textContent = `${bestAct.name} (${bestAct.avg.toFixed(1)})`;
+    }
+
+    function renderConsolidatedTable() {
+        if (typeof STUDENT_DATA === "undefined") return;
+
+        docenteTableBody.innerHTML = "";
+
+        STUDENT_DATA.forEach(s => {
+            const avg = (s.notas.tribunal.nota +
+                         s.notas.comic.nota +
+                         s.notas.cohete.nota +
+                         s.notas.tragamonedas.nota +
+                         s.notas.tinkercad.nota) / 5.0;
+
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-code", s.codigo);
+
+            tr.innerHTML = `
+                <td class="cell-code">${s.codigo}</td>
+                <td class="cell-name">${s.nombre}</td>
+                <td class="cell-grade ${s.notas.tribunal.nota < 3.0 ? 'grade-fail' : ''}" data-activity="tribunal">${s.notas.tribunal.nota.toFixed(1)}</td>
+                <td class="cell-grade ${s.notas.comic.nota < 3.0 ? 'grade-fail' : ''}" data-activity="comic">${s.notas.comic.nota.toFixed(1)}</td>
+                <td class="cell-grade ${s.notas.cohete.nota < 3.0 ? 'grade-fail' : ''}" data-activity="cohete">${s.notas.cohete.nota.toFixed(1)}</td>
+                <td class="cell-grade ${s.notas.tragamonedas.nota < 3.0 ? 'grade-fail' : ''}" data-activity="tragamonedas">${s.notas.tragamonedas.nota.toFixed(1)}</td>
+                <td class="cell-grade ${s.notas.tinkercad.nota < 3.0 ? 'grade-fail' : ''}" data-activity="tinkercad">${s.notas.tinkercad.nota.toFixed(1)}</td>
+                <td class="cell-average ${avg < 3.0 ? 'grade-fail' : ''}">${avg.toFixed(2)}</td>
+            `;
+
+            docenteTableBody.appendChild(tr);
+        });
+
+        // Add inline editing events to cells
+        makeCellsEditable();
+    }
+
+    function makeCellsEditable() {
+        const cells = docenteTableBody.querySelectorAll(".cell-grade");
+        
+        cells.forEach(cell => {
+            cell.addEventListener("click", function() {
+                // If already editing, do nothing
+                if (this.classList.contains("cell-grade-editing")) return;
+
+                const currentValue = parseFloat(this.textContent);
+                const activity = this.getAttribute("data-activity");
+                const row = this.closest("tr");
+                const code = row.getAttribute("data-code");
+
+                this.classList.add("cell-grade-editing");
+                this.innerHTML = `<input type="number" min="0" max="5" step="0.1" value="${currentValue}">`;
+                
+                const input = this.querySelector("input");
+                input.focus();
+                input.select();
+
+                const saveGrade = () => {
+                    let newValue = parseFloat(input.value);
+                    if (isNaN(newValue) || newValue < 0 || newValue > 5) {
+                        alert("Por favor introduce una nota válida entre 0.0 y 5.0");
+                        newValue = currentValue; // Revert
+                    }
+
+                    // Round to 1 decimal place
+                    newValue = Math.round(newValue * 10) / 10;
+
+                    // Update memory data
+                    const student = STUDENT_DATA.find(st => st.codigo === code);
+                    if (student) {
+                        student.notas[activity].nota = newValue;
+                    }
+
+                    // Update cell content
+                    this.classList.remove("cell-grade-editing");
+                    this.textContent = newValue.toFixed(1);
+                    this.classList.toggle("grade-fail", newValue < 3.0);
+
+                    // Recalculate row average
+                    const newAvg = (student.notas.tribunal.nota +
+                                    student.notas.comic.nota +
+                                    student.notas.cohete.nota +
+                                    student.notas.tragamonedas.nota +
+                                    student.notas.tinkercad.nota) / 5.0;
+                    
+                    const avgCell = row.querySelector(".cell-average");
+                    avgCell.textContent = newAvg.toFixed(2);
+                    avgCell.classList.toggle("grade-fail", newAvg < 3.0);
+
+                    // Update courses statistics cards
+                    calculateCourseStatistics();
+                };
+
+                input.addEventListener("blur", saveGrade);
+                input.addEventListener("keydown", function(e) {
+                    if (e.key === "Enter") {
+                        saveGrade();
+                    } else if (e.key === "Escape") {
+                        this.classList.remove("cell-grade-editing");
+                        cell.textContent = currentValue.toFixed(1);
+                    }
+                });
+            });
+        });
+    }
+
+    // Search filter for table
+    tableSearchInput.addEventListener("input", function() {
+        const query = this.value.toLowerCase().trim();
+        const rows = docenteTableBody.querySelectorAll("tr");
+
+        rows.forEach(row => {
+            const code = row.querySelector(".cell-code").textContent.toLowerCase();
+            const name = row.querySelector(".cell-name").textContent.toLowerCase();
+            if (code.includes(query) || name.includes(query)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    });
+
+    // Print report handler
+    printReportBtn.addEventListener("click", () => {
+        window.print();
+    });
+
+    // SheetJS Excel Exporter
+    exportExcelBtn.addEventListener("click", () => {
+        if (typeof XLSX === "undefined") {
+            alert("La librería de exportación no se ha cargado correctamente. Inténtalo de nuevo.");
+            return;
+        }
+
+        // Map data for sheet
+        const sheetData = STUDENT_DATA.map(s => {
+            const avg = (s.notas.tribunal.nota +
+                         s.notas.comic.nota +
+                         s.notas.cohete.nota +
+                         s.notas.tragamonedas.nota +
+                         s.notas.tinkercad.nota) / 5.0;
+
+            return {
+                "Código": parseInt(s.codigo),
+                "Nombre Completo": s.nombre,
+                "Correo Institucional": s.correo,
+                "Programa": getProgramName(s.programa),
+                "Tribunal": s.notas.tribunal.nota,
+                "Cómic IA": s.notas.comic.nota,
+                "Lanzamiento Cohete": s.notas.cohete.nota,
+                "Robot Tragamonedas": s.notas.tragamonedas.nota,
+                "Tinkercad": s.notas.tinkercad.nota,
+                "Promedio Final": Math.round(avg * 100) / 100
+            };
+        });
+
+        // Create sheet & workbook
+        const ws = XLSX.utils.json_to_sheet(sheetData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Consolidado Notas");
+
+        // Adjust column widths
+        const wscols = [
+            { wch: 12 }, // Código
+            { wch: 35 }, // Nombre
+            { wch: 38 }, // Correo
+            { wch: 30 }, // Programa
+            { wch: 12 }, // Tribunal
+            { wch: 12 }, // Comic
+            { wch: 15 }, // Cohete
+            { wch: 15 }, // Tragamonedas
+            { wch: 12 }, // Tinkercad
+            { wch: 15 }  // Promedio
+        ];
+        ws['!cols'] = wscols;
+
+        // Save workbook as file
+        XLSX.writeFile(wb, "Reporte_Consolidado_Calificaciones_Robotica.xlsx");
+    });
+}
 });

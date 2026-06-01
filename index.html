@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="style.css">
+    <!-- SheetJS for client-side Excel exporting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body class="dark-theme">
     <div class="background-grid"></div>
@@ -29,9 +31,14 @@
                     <p class="subtitle">Universidad del Valle - Sede Tuluá</p>
                 </div>
             </div>
-            <button id="theme-toggle-btn" class="icon-btn" title="Cambiar tema" aria-label="Cambiar tema de la página">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+            <div class="header-actions">
+                <button type="button" id="docente-login-trigger" class="btn btn-secondary" title="Acceso Docente">
+                    <i class="fa-solid fa-user-shield"></i> <span>Acceso Docente</span>
+                </button>
+                <button id="theme-toggle-btn" class="icon-btn" title="Cambiar tema" aria-label="Cambiar tema de la página">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -193,7 +200,111 @@
                 <p class="error-tip">Por favor verifica que hayas digitado correctamente tus 9 números (Ej: 202569309).</p>
             </div>
         </section>
+
+        <!-- Docente Dashboard (hidden by default) -->
+        <section id="docente-dashboard" class="result-section" style="display: none;">
+            <div class="dashboard-header card">
+                <div class="dashboard-title-row">
+                    <h3><i class="fa-solid fa-chart-line"></i> Panel de Control del Docente</h3>
+                    <div class="dashboard-actions">
+                        <button type="button" id="export-excel-btn" class="btn btn-success">
+                            <i class="fa-solid fa-file-excel"></i> Exportar Excel
+                        </button>
+                        <button type="button" id="print-report-btn" class="btn btn-primary">
+                            <i class="fa-solid fa-print"></i> Imprimir Reporte
+                        </button>
+                        <button type="button" id="logout-btn" class="btn btn-danger">
+                            <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+                <p>Consolidado general de calificaciones, estadísticas de rendimiento por actividad y exportación de reportes oficiales.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card card">
+                    <i class="fa-solid fa-users stat-icon text-accent-primary"></i>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Estudiantes</span>
+                        <span id="stat-total-students" class="stat-value">28</span>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <i class="fa-solid fa-graduation-cap stat-icon text-accent-success"></i>
+                    <div class="stat-info">
+                        <span class="stat-label">Promedio del Curso</span>
+                        <span id="stat-course-average" class="stat-value">0.00</span>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <i class="fa-solid fa-circle-check stat-icon text-accent-warning"></i>
+                    <div class="stat-info">
+                        <span class="stat-label">Tasa de Aprobación</span>
+                        <span id="stat-pass-rate" class="stat-value">0.0%</span>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <i class="fa-solid fa-trophy stat-icon text-accent-danger"></i>
+                    <div class="stat-info">
+                        <span class="stat-label">Actividad Destacada</span>
+                        <span id="stat-top-activity" class="stat-value">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consolidated Table Card -->
+            <div class="card table-card">
+                <div class="table-header-row">
+                    <h4>Consolidado General de Notas</h4>
+                    <div class="table-search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass table-search-icon"></i>
+                        <input type="text" id="table-search-input" placeholder="Buscar por nombre o código...">
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="docente-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre Completo</th>
+                                <th>Tribunal (20%)</th>
+                                <th>Cómic (20%)</th>
+                                <th>Cohete (20%)</th>
+                                <th>Tragamonedas (20%)</th>
+                                <th>Tinkercad (20%)</th>
+                                <th>Promedio Final</th>
+                            </tr>
+                        </thead>
+                        <tbody id="docente-table-body">
+                            <!-- Populated dynamically by JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="edit-hint-box">
+                    <p><i class="fa-solid fa-info-circle"></i> <strong>Nota:</strong> Haz clic sobre cualquier nota para editarla directamente. El promedio final se actualizará en tiempo real.</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Login Docente Modal -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content card">
+            <button type="button" id="close-login-btn" class="close-btn" aria-label="Cerrar modal">&times;</button>
+            <h3><i class="fa-solid fa-user-shield text-comic"></i> Acceso Docente</h3>
+            <p class="modal-desc">Ingresa la contraseña de seguridad para visualizar el consolidado y las estadísticas del curso.</p>
+            <form id="login-form" onsubmit="event.preventDefault();">
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="teacher-password-input" placeholder="Contraseña de acceso" required autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Ingresar</button>
+                <div id="login-error-msg" class="search-error-msg" style="display: none; margin-top: 10px;">Contraseña incorrecta.</div>
+            </form>
+        </div>
+    </div>
 
     <footer class="app-footer">
         <div class="container footer-container">
