@@ -71,8 +71,8 @@ const STUDENT_DATA = [
         "retroalimentacion": "Buen trabajo. Se presenta una narrativa muy bien lograda con un guion detallado de 6 páginas y paneles de cómic completos. La historia integra el tema de la IA de forma muy creativa. La nota se ve afectada debido a que la bitácora de prompts está incompleta, documentando solo la instrucción inicial del guion y omitiendo los prompts específicos para la generación de las imágenes."
       },
       "cohete": {
-        "nota": 0.0,
-        "retroalimentacion": "No se encontró registro de participación o entrega en el lanzamiento de cohete."
+        "nota": 5.0,
+        "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
       },
       "tragamonedas": {
         "nota": 5.0,
