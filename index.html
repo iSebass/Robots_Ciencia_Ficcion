@@ -49,6 +49,13 @@
                 <p class="section-desc">Ingresa tu código de estudiante para consultar tus notas finales, promedios y la retroalimentación de las actividades en clase.</p>
                 
                 <form id="search-form" class="search-form" onsubmit="event.preventDefault();">
+                    <div class="select-wrapper">
+                        <i class="fa-solid fa-graduation-cap select-icon"></i>
+                        <select id="course-select" aria-label="Seleccionar Asignatura">
+                            <option value="robots_ciencia_ficcion">Robots, Ciencia y Ficción</option>
+                            <option value="sistemas_embebidos">Sistemas Embebidos</option>
+                        </select>
+                    </div>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-id-card input-icon"></i>
                         <input type="text" id="student-code-input" placeholder="Ej. 202500000" required autocomplete="off" aria-label="Código de Estudiante">
@@ -70,27 +77,8 @@
             <div class="info-card">
                 <h3><i class="fa-solid fa-circle-info"></i> Actividades Evaluadas</h3>
                 <p>En este portal podrás consultar el estado de cinco actividades prácticas clave del semestre:</p>
-                <div class="activities-grid">
-                    <div class="act-info-box">
-                        <h4><i class="fa-solid fa-gavel text-tribunal"></i> 1. Tribunal de Robótica</h4>
-                        <p class="act-desc">Debate y análisis ético sobre dilemas de las Leyes de Asimov aplicadas a la robótica industrial (médica, manufactura y transición social).</p>
-                    </div>
-                    <div class="act-info-box">
-                        <h4><i class="fa-solid fa-palette text-comic"></i> 2. Cómic con IA Generativa</h4>
-                        <p class="act-desc">Creación de una historia de ciencia ficción (6-8 paneles) utilizando modelos de lenguaje y generadores de imágenes, documentando prompts en una bitácora.</p>
-                    </div>
-                    <div class="act-info-box">
-                        <h4><i class="fa-solid fa-rocket text-cohete"></i> 3. Lanzamiento de Cohete</h4>
-                        <p class="act-desc">Construcción y lanzamiento práctico del cohete de agua en muestra en vivo para verificar el vuelo satisfactorio.</p>
-                    </div>
-                    <div class="act-info-box">
-                        <h4><i class="fa-solid fa-gamepad text-tragamonedas"></i> 4. Robot Tragamonedas</h4>
-                        <p class="act-desc">Construcción y entrega del prototipo funcional del robot tragamonedas.</p>
-                    </div>
-                    <div class="act-info-box">
-                        <h4><i class="fa-solid fa-microchip text-tinkercad"></i> 5. Actividad Tinkercad</h4>
-                        <p class="act-desc">Diseño, modelado y simulación de circuitos en la plataforma virtual Tinkercad.</p>
-                    </div>
+                <div class="activities-grid" id="activities-info-grid">
+                    <!-- Populated dynamically by JS -->
                 </div>
             </div>
         </section>
@@ -99,22 +87,8 @@
         <section id="result-container" class="result-section" style="display: none;">
             
             <!-- Tab Navigation -->
-            <div class="tabs-container">
-                <button type="button" id="tab-tribunal" class="tab-btn active">
-                    <i class="fa-solid fa-scale-balanced"></i> <span>Tribunal de Robótica</span>
-                </button>
-                <button type="button" id="tab-comic" class="tab-btn">
-                    <i class="fa-solid fa-images"></i> <span>Cómic con IA</span>
-                </button>
-                <button type="button" id="tab-cohete" class="tab-btn">
-                    <i class="fa-solid fa-rocket"></i> <span>Lanzamiento de Cohete</span>
-                </button>
-                <button type="button" id="tab-tragamonedas" class="tab-btn">
-                    <i class="fa-solid fa-gamepad"></i> <span>Robot Tragamonedas</span>
-                </button>
-                <button type="button" id="tab-tinkercad" class="tab-btn">
-                    <i class="fa-solid fa-microchip"></i> <span>Tinkercad</span>
-                </button>
+            <div class="tabs-container" id="tabs-navigation-container">
+                <!-- Populated dynamically by JS -->
             </div>
 
             <div class="result-layout">
@@ -265,17 +239,8 @@
                 
                 <div class="table-responsive">
                     <table id="docente-table">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre Completo</th>
-                                <th>Tribunal (20%)</th>
-                                <th>Cómic (20%)</th>
-                                <th>Cohete (20%)</th>
-                                <th>Tragamonedas (20%)</th>
-                                <th>Tinkercad (20%)</th>
-                                <th>Promedio Final</th>
-                            </tr>
+                        <thead id="docente-table-head">
+                            <!-- Populated dynamically by JS -->
                         </thead>
                         <tbody id="docente-table-body">
                             <!-- Populated dynamically by JS -->

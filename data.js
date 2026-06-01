@@ -1,5 +1,74 @@
-// Datos de calificaciones y retroalimentación humanizados para 5 actividades
-const STUDENT_DATA = [
+// Datos de calificaciones y retroalimentación humanizados para múltiples asignaturas
+const COURSES_DATA = {
+  "robots_ciencia_ficcion": {
+    "name": "Robots, Ciencia y Ficción",
+    "subtitle": "Universidad del Valle - Sede Tuluá",
+    "activities": [
+      {
+        "id": "tribunal",
+        "name": "Tribunal de Robótica",
+        "weight": 0.20,
+        "icon": "fa-scale-balanced",
+        "colorClass": "text-tribunal",
+        "rubrics": [
+          { "name": "Comprensión de las Leyes", "weight": "20%" },
+          { "name": "Análisis del Conflicto", "weight": "25%" },
+          { "name": "Responsabilidad", "weight": "20%" },
+          { "name": "Solución Propuesta", "weight": "20%" },
+          { "name": "Normativa Real", "weight": "15%" }
+        ],
+        "description": "Debate y análisis ético sobre dilemas de las Leyes de Asimov aplicadas a la robótica industrial (médica, manufactura y transición social)."
+      },
+      {
+        "id": "comic",
+        "name": "Cómic con IA",
+        "weight": 0.20,
+        "icon": "fa-images",
+        "colorClass": "text-comic",
+        "rubrics": [
+          { "name": "Narrativa y Guion", "weight": "25%" },
+          { "name": "Uso de IA Generativa", "weight": "25%" },
+          { "name": "Calidad Visual", "weight": "20%" },
+          { "name": "Reflexión Crítica", "weight": "20%" },
+          { "name": "Trabajo en Equipo", "weight": "10%" }
+        ],
+        "description": "Creación de una historia de ciencia ficción (6-8 paneles) utilizando modelos de lenguaje y generadores de imágenes, documentando prompts en una bitácora."
+      },
+      {
+        "id": "cohete",
+        "name": "Lanzamiento de Cohete",
+        "weight": 0.20,
+        "icon": "fa-rocket",
+        "colorClass": "text-cohete",
+        "rubrics": [
+          { "name": "Desempeño Práctico", "weight": "100%" }
+        ],
+        "description": "Construcción y lanzamiento práctico del cohete de agua en muestra en vivo para verificar el vuelo satisfactorio."
+      },
+      {
+        "id": "tragamonedas",
+        "name": "Robot Tragamonedas",
+        "weight": 0.20,
+        "icon": "fa-gamepad",
+        "colorClass": "text-tragamonedas",
+        "rubrics": [
+          { "name": "Desempeño Práctico", "weight": "100%" }
+        ],
+        "description": "Construcción y entrega del prototipo funcional del robot tragamonedas."
+      },
+      {
+        "id": "tinkercad",
+        "name": "Actividad Tinkercad",
+        "weight": 0.20,
+        "icon": "fa-microchip",
+        "colorClass": "text-tinkercad",
+        "rubrics": [
+          { "name": "Desempeño Práctico", "weight": "100%" }
+        ],
+        "description": "Diseño, modelado y simulación de circuitos en la plataforma virtual Tinkercad."
+      }
+    ],
+    "students": [
   {
     "codigo": "202500000",
     "nombre": "ESTUDIANTE DE PRUEBA (DEMO)",
@@ -812,4 +881,73 @@ const STUDENT_DATA = [
       }
     }
   }
-];
+    ]
+  },
+  "sistemas_embebidos": {
+    "name": "Sistemas Embebidos",
+    "subtitle": "Universidad del Valle - Sede Tuluá",
+    "activities": [
+      {
+        "id": "lab1",
+        "name": "Laboratorio 1",
+        "weight": 0.25,
+        "icon": "fa-microchip",
+        "colorClass": "text-tinkercad",
+        "rubrics": [
+          { "name": "Esquema y Conexiones", "weight": "30%" },
+          { "name": "Código y Lógica", "weight": "40%" },
+          { "name": "Funcionamiento Práctico", "weight": "30%" }
+        ],
+        "description": "Desarrollo y simulación del primer laboratorio de periféricos de entrada y salida."
+      },
+      {
+        "id": "lab2",
+        "name": "Laboratorio 2",
+        "weight": 0.25,
+        "icon": "fa-clock",
+        "colorClass": "text-tribunal",
+        "rubrics": [
+          { "name": "Uso de Temporizadores", "weight": "40%" },
+          { "name": "Precisión de Medidas", "weight": "30%" },
+          { "name": "Informe Técnico", "weight": "30%" }
+        ],
+        "description": "Laboratorio práctico sobre contadores y temporizadores (Timers)."
+      },
+      {
+        "id": "proyecto",
+        "name": "Proyecto Final",
+        "weight": 0.50,
+        "icon": "fa-robot",
+        "colorClass": "text-comic",
+        "rubrics": [
+          { "name": "Diseño de Hardware", "weight": "30%" },
+          { "name": "Firmware y Código", "weight": "40%" },
+          { "name": "Sustentación", "weight": "30%" }
+        ],
+        "description": "Proyecto final integrador de sistemas embebidos de alto rendimiento."
+      }
+    ],
+    "students": [
+      {
+        "codigo": "202500000",
+        "nombre": "ESTUDIANTE DE PRUEBA (DEMO EMBEBIDOS)",
+        "correo": "estudiante.prueba.embebidos@correounivalle.edu.co",
+        "programa": "3743",
+        "notas": {
+          "lab1": {
+            "nota": 4.8,
+            "retroalimentacion": "Excelente implementación del circuito de leds y pulsadores. Código bien comentado."
+          },
+          "lab2": {
+            "nota": 4.5,
+            "retroalimentacion": "Buena precisión en el frecuencímetro. Se recomienda optimizar el uso de interrupciones."
+          },
+          "proyecto": {
+            "nota": 5.0,
+            "retroalimentacion": "Proyecto final sobresaliente. Excelente sustentación y diseño del firmware."
+          }
+        }
+      }
+    ]
+  }
+};

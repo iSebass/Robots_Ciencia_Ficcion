@@ -1,5 +1,4 @@
 // Lógica de la aplicación para consulta de notas de múltiples actividades
-
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
@@ -7,19 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("student-code-input");
     const clearBtn = document.getElementById("clear-btn");
     const searchErrorMsg = document.getElementById("search-error-msg");
+    const courseSelect = document.getElementById("course-select");
     
     const welcomeContainer = document.getElementById("welcome-container");
     const resultContainer = document.getElementById("result-container");
     const noSubmissionContainer = document.getElementById("no-submission-container");
     const errorContainer = document.getElementById("error-container");
     const resultLayout = document.querySelector(".result-layout");
-
-    // Tab Buttons
-    const tabTribunal = document.getElementById("tab-tribunal");
-    const tabComic = document.getElementById("tab-comic");
-    const tabCohete = document.getElementById("tab-cohete");
-    const tabTragamonedas = document.getElementById("tab-tragamonedas");
-    const tabTinkercad = document.getElementById("tab-tinkercad");
+    const activitiesInfoGrid = document.getElementById("activities-info-grid");
+    const tabsContainer = document.getElementById("tabs-navigation-container");
 
     // Student Info Fields
     const studentNameEl = document.getElementById("student-name");
@@ -44,8 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const noSubStudentCodeEl = document.getElementById("no-sub-student-code");
 
     // App State Variables
+    let currentCourseKey = localStorage.getItem("current_course_key") || "robots_ciencia_ficcion";
     let currentStudent = null;
-    let activeTab = "tribunal"; // "tribunal", "comic", "cohete", "tragamonedas" or "tinkercad"
+    let activeTab = ""; // dynamic based on course activities
+
+    // Initialize Course Select
+    courseSelect.value = currentCourseKey;
 
     // Theme Management
     const savedTheme = localStorage.getItem("theme") || "dark-theme";
@@ -68,6 +67,52 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.className = "fa-solid fa-moon";
         }
     }
+
+    // Render Welcome Activities info
+    function renderWelcomeActivities() {
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) return;
+
+        activitiesInfoGrid.innerHTML = "";
+        activeCourse.activities.forEach((act, index) => {
+            const box = document.createElement("div");
+            box.className = "act-info-box";
+            box.innerHTML = `
+                <h4><i class="fa-solid ${act.icon} ${act.colorClass}"></i> ${index + 1}. ${act.name}</h4>
+                <p class="act-desc">${act.description}</p>
+            `;
+            activitiesInfoGrid.appendChild(box);
+        });
+    }
+
+    // Initialize Welcome View
+    renderWelcomeActivities();
+
+    // Course select handler
+    courseSelect.addEventListener("change", (e) => {
+        currentCourseKey = e.target.value;
+        localStorage.setItem("current_course_key", currentCourseKey);
+        
+        // Reset Search
+        searchInput.value = "";
+        clearBtn.style.display = "none";
+        searchErrorMsg.style.display = "none";
+        
+        // Hide details and show welcome
+        welcomeContainer.style.display = "block";
+        resultContainer.style.display = "none";
+        noSubmissionContainer.style.display = "none";
+        errorContainer.style.display = "none";
+        currentStudent = null;
+
+        // Re-render activities for the new course
+        renderWelcomeActivities();
+
+        // Refresh teacher dashboard if visible
+        if (docenteDashboard.style.display === "block") {
+            showTeacherDashboard();
+        }
+    });
 
     // Input handlers
     searchInput.addEventListener("input", () => {
@@ -95,50 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
         searchStudent(codeQuery);
     });
 
-    // Tab Event Listeners
-    tabTribunal.addEventListener("click", () => {
-        if (activeTab === "tribunal") return;
-        activeTab = "tribunal";
-        setActiveTabBtn();
-        renderActiveTab();
-    });
-
-    tabComic.addEventListener("click", () => {
-        if (activeTab === "comic") return;
-        activeTab = "comic";
-        setActiveTabBtn();
-        renderActiveTab();
-    });
-
-    tabCohete.addEventListener("click", () => {
-        if (activeTab === "cohete") return;
-        activeTab = "cohete";
-        setActiveTabBtn();
-        renderActiveTab();
-    });
-
-    tabTragamonedas.addEventListener("click", () => {
-        if (activeTab === "tragamonedas") return;
-        activeTab = "tragamonedas";
-        setActiveTabBtn();
-        renderActiveTab();
-    });
-
-    tabTinkercad.addEventListener("click", () => {
-        if (activeTab === "tinkercad") return;
-        activeTab = "tinkercad";
-        setActiveTabBtn();
-        renderActiveTab();
-    });
-
-    function setActiveTabBtn() {
-        tabTribunal.classList.toggle("active", activeTab === "tribunal");
-        tabComic.classList.toggle("active", activeTab === "comic");
-        tabCohete.classList.toggle("active", activeTab === "cohete");
-        tabTragamonedas.classList.toggle("active", activeTab === "tragamonedas");
-        tabTinkercad.classList.toggle("active", activeTab === "tinkercad");
-    }
-
     function searchStudent(code) {
         // Hide all containers
         welcomeContainer.style.display = "none";
@@ -156,13 +157,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Check if data is loaded
-        if (typeof STUDENT_DATA === "undefined") {
-            console.error("STUDENT_DATA is not loaded!");
+        if (typeof COURSES_DATA === "undefined") {
+            console.error("COURSES_DATA is not loaded!");
             errorContainer.style.display = "block";
             return;
         }
 
-        const student = STUDENT_DATA.find(s => s.codigo === code);
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) {
+            errorContainer.style.display = "block";
+            return;
+        }
+
+        const student = activeCourse.students.find(s => s.codigo === code);
 
         if (!student) {
             errorContainer.style.display = "block";
@@ -179,13 +186,38 @@ document.addEventListener("DOMContentLoaded", () => {
         studentEmailEl.textContent = student.correo;
         studentProgramBadge.textContent = getProgramName(student.programa);
         
-        // Calculate and show Average grade
-        const avg = (student.notas.tribunal.nota + 
-                     student.notas.comic.nota + 
-                     student.notas.cohete.nota + 
-                     student.notas.tragamonedas.nota + 
-                     student.notas.tinkercad.nota) / 5.0;
+        // Calculate and show weighted average grade
+        let totalWeightedGrade = 0;
+        let totalWeight = 0;
+        activeCourse.activities.forEach(act => {
+            const gradeObj = student.notas[act.id];
+            const noteVal = gradeObj ? gradeObj.nota : 0.0;
+            totalWeightedGrade += noteVal * act.weight;
+            totalWeight += act.weight;
+        });
+        const avg = totalWeight > 0 ? (totalWeightedGrade / totalWeight) : 0.0;
         studentAverageEl.textContent = avg.toFixed(2);
+
+        // Generate Tab Buttons Dynamically
+        tabsContainer.innerHTML = "";
+        activeCourse.activities.forEach((act, index) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = `tab-btn ${index === 0 ? "active" : ""}`;
+            btn.innerHTML = `<i class="fa-solid ${act.icon}"></i> <span>${act.name}</span>`;
+            btn.addEventListener("click", () => {
+                activeTab = act.id;
+                tabsContainer.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                renderActiveTab();
+            });
+            tabsContainer.appendChild(btn);
+        });
+
+        // Set initial active tab
+        if (activeCourse.activities.length > 0) {
+            activeTab = activeCourse.activities[0].id;
+        }
 
         // Show main result container
         resultContainer.style.display = "block";
@@ -197,31 +229,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderActiveTab() {
         if (!currentStudent) return;
 
-        let activityData;
-        if (activeTab === "tribunal") {
-            activityData = currentStudent.notas.tribunal;
-            feedbackTitleEl.innerHTML = `<i class="fa-solid fa-scale-balanced text-tribunal"></i> Retroalimentación: Tribunal de Robótica`;
-            scoreCardTitleEl.textContent = "Tribunal de Robótica";
-        } else if (activeTab === "comic") {
-            activityData = currentStudent.notas.comic;
-            feedbackTitleEl.innerHTML = `<i class="fa-solid fa-images text-comic"></i> Retroalimentación: Cómic con IA`;
-            scoreCardTitleEl.textContent = "Cómic con IA Generativa";
-        } else if (activeTab === "cohete") {
-            activityData = currentStudent.notas.cohete;
-            feedbackTitleEl.innerHTML = `<i class="fa-solid fa-rocket text-cohete"></i> Retroalimentación: Lanzamiento de Cohete`;
-            scoreCardTitleEl.textContent = "Lanzamiento de Cohete";
-        } else if (activeTab === "tragamonedas") {
-            activityData = currentStudent.notas.tragamonedas;
-            feedbackTitleEl.innerHTML = `<i class="fa-solid fa-gamepad text-tragamonedas"></i> Retroalimentación: Robot Tragamonedas`;
-            scoreCardTitleEl.textContent = "Robot Tragamonedas";
-        } else {
-            activityData = currentStudent.notas.tinkercad;
-            feedbackTitleEl.innerHTML = `<i class="fa-solid fa-microchip text-tinkercad"></i> Retroalimentación: Actividad Tinkercad`;
-            scoreCardTitleEl.textContent = "Actividad Tinkercad";
-        }
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) return;
 
-        // Check if student submitted this specific activity
-        if (activityData.nota > 0.0) {
+        const actConfig = activeCourse.activities.find(a => a.id === activeTab);
+        if (!actConfig) return;
+
+        const activityData = currentStudent.notas[activeTab];
+
+        feedbackTitleEl.innerHTML = `<i class="fa-solid ${actConfig.icon} ${actConfig.colorClass}"></i> Retroalimentación: ${actConfig.name}`;
+        scoreCardTitleEl.textContent = actConfig.name;
+
+        // Check if student has notes for this specific activity
+        if (activityData && activityData.nota > 0.0) {
             // Show details panel, hide warning
             resultLayout.style.display = "grid";
             noSubmissionContainer.style.display = "none";
@@ -243,24 +263,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // Redraw performance badge & specific rubric criteria
             updatePerformanceMetrics(activityData.nota, activeTab);
         } else {
-            // Grade is 0.0, show "No submission warning" while keeping tab controls visible
+            // Grade is 0.0 or undefined, show "No submission warning" while keeping tab controls visible
             resultLayout.style.display = "none";
             
             noSubStudentNameEl.textContent = currentStudent.nombre;
             noSubStudentCodeEl.textContent = currentStudent.codigo;
             
             const warningTextEl = noSubmissionContainer.querySelector(".warning-details p");
-            if (activeTab === "tribunal") {
-                warningTextEl.innerHTML = `No se encontró registro de tu participación o entrega en los grupos de la actividad <strong>"Tribunal de Robótica"</strong>.`;
-            } else if (activeTab === "comic") {
-                warningTextEl.innerHTML = `No se encontró registro de tu participación o entrega en los grupos de la actividad <strong>"Cómic con IA Generativa"</strong>.`;
-            } else if (activeTab === "cohete") {
-                warningTextEl.innerHTML = `No se encontró registro de tu participación o entrega en la actividad <strong>"Lanzamiento de Cohete"</strong>.`;
-            } else if (activeTab === "tragamonedas") {
-                warningTextEl.innerHTML = `No se encontró registro de tu participación o entrega en la actividad del <strong>"Robot Tragamonedas"</strong>.`;
-            } else {
-                warningTextEl.innerHTML = `No se encontró registro de tu participación o entrega en la <strong>"Actividad Tinkercad"</strong>.`;
-            }
+            warningTextEl.innerHTML = `No se encontró registro de tu participación o entrega en la actividad <strong>"${actConfig.name}"</strong>.`;
             noSubmissionContainer.style.display = "block";
         }
     }
@@ -317,52 +327,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         performanceBadgeContainer.textContent = label;
 
-        // Choose rubric items based on activity
-        const tribunalItems = [
-            { name: "Comprensión de las Leyes", weight: "20%" },
-            { name: "Análisis del Conflicto", weight: "25%" },
-            { name: "Responsabilidad", weight: "20%" },
-            { name: "Solución Propuesta", weight: "20%" },
-            { name: "Normativa Real", weight: "15%" }
-        ];
+        // Choose rubric items based on activity configuration
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) return;
 
-        const comicItems = [
-            { name: "Narrativa y Guion", weight: "25%" },
-            { name: "Uso de IA Generativa", weight: "25%" },
-            { name: "Calidad Visual", weight: "20%" },
-            { name: "Reflexión Crítica", weight: "20%" },
-            { name: "Trabajo en Equipo", weight: "10%" }
-        ];
-
-        const coheteItems = [
-            { name: "Desempeño Práctico", weight: "100%" }
-        ];
-
-        const tragamonedasItems = [
-            { name: "Desempeño Práctico", weight: "100%" }
-        ];
-
-        const tinkercadItems = [
-            { name: "Desempeño Práctico", weight: "100%" }
-        ];
-
-        let activeItems;
-        if (activityType === "tribunal") {
-            activeItems = tribunalItems;
-        } else if (activityType === "comic") {
-            activeItems = comicItems;
-        } else if (activityType === "cohete") {
-            activeItems = coheteItems;
-        } else if (activityType === "tragamonedas") {
-            activeItems = tragamonedasItems;
-        } else {
-            activeItems = tinkercadItems;
-        }
+        const actConfig = activeCourse.activities.find(a => a.id === activityType);
+        const activeItems = actConfig ? actConfig.rubrics : [];
 
         rubricIndicatorsContainer.innerHTML = "";
         activeItems.forEach(item => {
-            const fillWidth = (score / 5.0 * 100).toFixed(0) + "%";
-            
             const rubricHtml = `
                 <div class="rubric-item">
                     <div class="rubric-info">
@@ -476,48 +449,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function calculateCourseStatistics() {
-        if (typeof STUDENT_DATA === "undefined" || STUDENT_DATA.length === 0) return;
+        if (typeof COURSES_DATA === "undefined") return;
 
-        const total = STUDENT_DATA.length;
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse || activeCourse.students.length === 0) return;
+
+        const students = activeCourse.students;
+        const total = students.length;
         let sumAverages = 0;
         let passedCount = 0;
 
-        let sumTribunal = 0;
-        let sumComic = 0;
-        let sumCohete = 0;
-        let sumTragamonedas = 0;
-        let sumTinkercad = 0;
+        const activitySums = {};
+        activeCourse.activities.forEach(act => {
+            activitySums[act.id] = 0;
+        });
 
-        STUDENT_DATA.forEach(s => {
-            const studentAvg = (s.notas.tribunal.nota +
-                                s.notas.comic.nota +
-                                s.notas.cohete.nota +
-                                s.notas.tragamonedas.nota +
-                                s.notas.tinkercad.nota) / 5.0;
+        students.forEach(s => {
+            let weightedGrade = 0;
+            let totalWeight = 0;
+            activeCourse.activities.forEach(act => {
+                const noteVal = s.notas[act.id] ? s.notas[act.id].nota : 0.0;
+                weightedGrade += noteVal * act.weight;
+                totalWeight += act.weight;
+                activitySums[act.id] += noteVal;
+            });
+            const studentAvg = totalWeight > 0 ? (weightedGrade / totalWeight) : 0;
             sumAverages += studentAvg;
             if (studentAvg >= 3.0) passedCount++;
-
-            sumTribunal += s.notas.tribunal.nota;
-            sumComic += s.notas.comic.nota;
-            sumCohete += s.notas.cohete.nota;
-            sumTragamonedas += s.notas.tragamonedas.nota;
-            sumTinkercad += s.notas.tinkercad.nota;
         });
 
         const courseAverage = sumAverages / total;
         const passRate = (passedCount / total) * 100;
 
         // Activity averages
-        const actAverages = [
-            { name: "Tribunal", avg: sumTribunal / total },
-            { name: "Cómic con IA", avg: sumComic / total },
-            { name: "Lanzamiento Cohete", avg: sumCohete / total },
-            { name: "Robot Tragamonedas", avg: sumTragamonedas / total },
-            { name: "Tinkercad", avg: sumTinkercad / total }
-        ];
+        const actAverages = activeCourse.activities.map(act => {
+            return {
+                name: act.name,
+                avg: activitySums[act.id] / total
+            };
+        });
 
         // Find activity with highest average
-        let bestAct = actAverages[0];
+        let bestAct = actAverages[0] || { name: "-", avg: 0 };
         actAverages.forEach(act => {
             if (act.avg > bestAct.avg) bestAct = act;
         });
@@ -530,29 +503,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderConsolidatedTable() {
-        if (typeof STUDENT_DATA === "undefined") return;
+        if (typeof COURSES_DATA === "undefined") return;
 
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) return;
+
+        // Render dynamic table headers
+        const thead = document.getElementById("docente-table-head");
+        let ths = `
+            <tr>
+                <th>Código</th>
+                <th>Nombre Completo</th>
+        `;
+        activeCourse.activities.forEach(act => {
+            ths += `<th style="text-align: center;">${act.name} (${(act.weight * 100).toFixed(0)}%)</th>`;
+        });
+        ths += `
+                <th style="text-align: center;">Promedio Final</th>
+            </tr>
+        `;
+        thead.innerHTML = ths;
+
+        // Render dynamic table body
         docenteTableBody.innerHTML = "";
 
-        STUDENT_DATA.forEach(s => {
-            const avg = (s.notas.tribunal.nota +
-                         s.notas.comic.nota +
-                         s.notas.cohete.nota +
-                         s.notas.tragamonedas.nota +
-                         s.notas.tinkercad.nota) / 5.0;
+        activeCourse.students.forEach(s => {
+            let weightedGrade = 0;
+            let totalWeight = 0;
+            activeCourse.activities.forEach(act => {
+                const noteVal = s.notas[act.id] ? s.notas[act.id].nota : 0.0;
+                weightedGrade += noteVal * act.weight;
+                totalWeight += act.weight;
+            });
+            const avg = totalWeight > 0 ? (weightedGrade / totalWeight) : 0;
 
             const tr = document.createElement("tr");
             tr.setAttribute("data-code", s.codigo);
 
+            let gradesTdHtml = "";
+            activeCourse.activities.forEach(act => {
+                const noteVal = s.notas[act.id] ? s.notas[act.id].nota : 0.0;
+                gradesTdHtml += `
+                    <td class="cell-grade ${noteVal < 3.0 ? 'grade-fail' : ''}" data-activity="${act.id}" style="text-align: center;">
+                        ${noteVal.toFixed(1)}
+                    </td>
+                `;
+            });
+
             tr.innerHTML = `
                 <td class="cell-code">${s.codigo}</td>
                 <td class="cell-name">${s.nombre}</td>
-                <td class="cell-grade ${s.notas.tribunal.nota < 3.0 ? 'grade-fail' : ''}" data-activity="tribunal">${s.notas.tribunal.nota.toFixed(1)}</td>
-                <td class="cell-grade ${s.notas.comic.nota < 3.0 ? 'grade-fail' : ''}" data-activity="comic">${s.notas.comic.nota.toFixed(1)}</td>
-                <td class="cell-grade ${s.notas.cohete.nota < 3.0 ? 'grade-fail' : ''}" data-activity="cohete">${s.notas.cohete.nota.toFixed(1)}</td>
-                <td class="cell-grade ${s.notas.tragamonedas.nota < 3.0 ? 'grade-fail' : ''}" data-activity="tragamonedas">${s.notas.tragamonedas.nota.toFixed(1)}</td>
-                <td class="cell-grade ${s.notas.tinkercad.nota < 3.0 ? 'grade-fail' : ''}" data-activity="tinkercad">${s.notas.tinkercad.nota.toFixed(1)}</td>
-                <td class="cell-average ${avg < 3.0 ? 'grade-fail' : ''}">${avg.toFixed(2)}</td>
+                ${gradesTdHtml}
+                <td class="cell-average ${avg < 3.0 ? 'grade-fail' : ''}" style="text-align: center;">${avg.toFixed(2)}</td>
             `;
 
             docenteTableBody.appendChild(tr);
@@ -564,6 +566,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function makeCellsEditable() {
         const cells = docenteTableBody.querySelectorAll(".cell-grade");
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) return;
         
         cells.forEach(cell => {
             cell.addEventListener("click", function() {
@@ -593,8 +597,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     newValue = Math.round(newValue * 10) / 10;
 
                     // Update memory data
-                    const student = STUDENT_DATA.find(st => st.codigo === code);
+                    const student = activeCourse.students.find(st => st.codigo === code);
                     if (student) {
+                        if (!student.notas[activity]) {
+                            student.notas[activity] = { nota: 0.0, retroalimentacion: "" };
+                        }
                         student.notas[activity].nota = newValue;
                     }
 
@@ -603,12 +610,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     this.textContent = newValue.toFixed(1);
                     this.classList.toggle("grade-fail", newValue < 3.0);
 
-                    // Recalculate row average
-                    const newAvg = (student.notas.tribunal.nota +
-                                    student.notas.comic.nota +
-                                    student.notas.cohete.nota +
-                                    student.notas.tragamonedas.nota +
-                                    student.notas.tinkercad.nota) / 5.0;
+                    // Recalculate row average dynamically
+                    let weightedGrade = 0;
+                    let totalWeight = 0;
+                    activeCourse.activities.forEach(act => {
+                        const noteVal = student.notas[act.id] ? student.notas[act.id].nota : 0.0;
+                        weightedGrade += noteVal * act.weight;
+                        totalWeight += act.weight;
+                    });
+                    const newAvg = totalWeight > 0 ? (weightedGrade / totalWeight) : 0;
                     
                     const avgCell = row.querySelector(".cell-average");
                     avgCell.textContent = newAvg.toFixed(2);
@@ -659,49 +669,57 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Map data for sheet
-        const sheetData = STUDENT_DATA.map(s => {
-            const avg = (s.notas.tribunal.nota +
-                         s.notas.comic.nota +
-                         s.notas.cohete.nota +
-                         s.notas.tragamonedas.nota +
-                         s.notas.tinkercad.nota) / 5.0;
+        const activeCourse = COURSES_DATA[currentCourseKey];
+        if (!activeCourse) return;
 
-            return {
+        // Map data for sheet
+        const sheetData = activeCourse.students.map(s => {
+            let weightedGrade = 0;
+            let totalWeight = 0;
+            activeCourse.activities.forEach(act => {
+                const noteVal = s.notas[act.id] ? s.notas[act.id].nota : 0.0;
+                weightedGrade += noteVal * act.weight;
+                totalWeight += act.weight;
+            });
+            const avg = totalWeight > 0 ? (weightedGrade / totalWeight) : 0;
+
+            const rowDataObj = {
                 "Código": parseInt(s.codigo),
                 "Nombre Completo": s.nombre,
                 "Correo Institucional": s.correo,
-                "Programa": getProgramName(s.programa),
-                "Tribunal": s.notas.tribunal.nota,
-                "Cómic IA": s.notas.comic.nota,
-                "Lanzamiento Cohete": s.notas.cohete.nota,
-                "Robot Tragamonedas": s.notas.tragamonedas.nota,
-                "Tinkercad": s.notas.tinkercad.nota,
-                "Promedio Final": Math.round(avg * 100) / 100
+                "Programa": getProgramName(s.programa)
             };
+
+            // Add grades dynamically
+            activeCourse.activities.forEach(act => {
+                const noteVal = s.notas[act.id] ? s.notas[act.id].nota : 0.0;
+                rowDataObj[`${act.name} (${(act.weight * 100).toFixed(0)}%)`] = noteVal;
+            });
+
+            rowDataObj["Promedio Final"] = Math.round(avg * 100) / 100;
+            return rowDataObj;
         });
 
         // Create sheet & workbook
         const ws = XLSX.utils.json_to_sheet(sheetData);
         const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "Consolidado Notas");
+        XLSX.utils.book_append_sheet(wb, ws, `Consolidado ${activeCourse.name.slice(0, 15)}`);
 
-        // Adjust column widths
+        // Adjust column widths dynamically
         const wscols = [
             { wch: 12 }, // Código
             { wch: 35 }, // Nombre
             { wch: 38 }, // Correo
-            { wch: 30 }, // Programa
-            { wch: 12 }, // Tribunal
-            { wch: 12 }, // Comic
-            { wch: 15 }, // Cohete
-            { wch: 15 }, // Tragamonedas
-            { wch: 12 }, // Tinkercad
-            { wch: 15 }  // Promedio
+            { wch: 30 }  // Programa
         ];
+        activeCourse.activities.forEach(() => {
+            wscols.push({ wch: 20 });
+        });
+        wscols.push({ wch: 15 }); // Promedio Final
         ws['!cols'] = wscols;
 
         // Save workbook as file
-        XLSX.writeFile(wb, "Reporte_Consolidado_Calificaciones_Robotica.xlsx");
+        const safeName = activeCourse.name.replace(/[^a-zA-Z0-9]/g, "_");
+        XLSX.writeFile(wb, `Reporte_Consolidado_Calificaciones_${safeName}.xlsx`);
     });
 });
