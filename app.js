@@ -704,5 +704,4 @@ document.addEventListener("DOMContentLoaded", () => {
         // Save workbook as file
         XLSX.writeFile(wb, "Reporte_Consolidado_Calificaciones_Robotica.xlsx");
     });
-}
 });
