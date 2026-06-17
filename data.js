@@ -119,6 +119,20 @@ const COURSES_DATA = {
           }
         ],
         "description": "Desarrollo de una página web funcional con la integración de un chatbot."
+      },
+      {
+        "id": "tragamonedas_3d",
+        "name": "Tragamonedas (Impresión 3D)",
+        "weight": 0.2,
+        "icon": "fa-cube",
+        "colorClass": "text-tragamonedas",
+        "rubrics": [
+          {
+            "name": "Desempeño Práctico",
+            "weight": "100%"
+          }
+        ],
+        "description": "Construcción y ensamblaje de piezas en impresión 3D para la carcasa del robot tragamonedas."
       }
     ],
     "students": [
@@ -141,8 +155,8 @@ const COURSES_DATA = {
             "retroalimentacion": "El cohete de agua voló satisfactoriamente en la muestra práctica en vivo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 4,
+            "retroalimentacion": "Entregó el prototipo funcional del robot tragamonedas a tiempo."
           },
           "tinkercad": {
             "nota": 4.8,
@@ -151,6 +165,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -173,8 +191,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -183,6 +201,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -205,8 +227,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -215,6 +237,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -237,8 +263,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -247,6 +273,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -270,7 +300,7 @@ const COURSES_DATA = {
           },
           "tragamonedas": {
             "nota": 5,
-            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -279,6 +309,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 5,
+            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
           }
         }
       },
@@ -301,8 +335,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -311,6 +345,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -333,8 +371,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -343,6 +381,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -365,8 +407,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 3,
-            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -375,6 +417,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 3,
+            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
           }
         }
       },
@@ -397,8 +443,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -407,6 +453,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -429,8 +479,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -439,6 +489,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -461,8 +515,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -471,6 +525,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -493,8 +551,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -503,6 +561,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -525,8 +587,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -535,6 +597,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -557,8 +623,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 3,
-            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -567,6 +633,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 3,
+            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
           }
         }
       },
@@ -589,8 +659,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 3,
-            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -599,6 +669,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 3,
+            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
           }
         }
       },
@@ -621,8 +695,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -631,6 +705,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -654,7 +732,7 @@ const COURSES_DATA = {
           },
           "tragamonedas": {
             "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "retroalimentacion": "No se encontró registro de participación o entrega en la actividad del robot tragamonedas."
           },
           "tinkercad": {
             "nota": 0,
@@ -663,6 +741,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -686,7 +768,7 @@ const COURSES_DATA = {
           },
           "tragamonedas": {
             "nota": 5,
-            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -695,6 +777,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 5,
+            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
           }
         }
       },
@@ -717,8 +803,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -727,6 +813,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -749,8 +839,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -759,6 +849,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 0,
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -781,8 +875,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -791,6 +885,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -813,8 +911,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -823,6 +921,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -845,8 +947,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -855,6 +957,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -877,8 +983,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -887,6 +993,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -910,7 +1020,7 @@ const COURSES_DATA = {
           },
           "tragamonedas": {
             "nota": 5,
-            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -919,6 +1029,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 5,
+            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
           }
         }
       },
@@ -941,8 +1055,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 3,
-            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -951,6 +1065,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 3,
+            "retroalimentacion": "Solo mostraron evidencia de la impresion 3D."
           }
         }
       },
@@ -973,8 +1091,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. El cohete vuela satisfactoriamente en una muestra en vivo. Felicidades por el trabajo."
           },
           "tragamonedas": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 5,
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -983,6 +1101,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 0,
+            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
           }
         }
       },
@@ -1006,7 +1128,7 @@ const COURSES_DATA = {
           },
           "tragamonedas": {
             "nota": 5,
-            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -1015,6 +1137,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 5,
+            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
           }
         }
       },
@@ -1038,7 +1164,7 @@ const COURSES_DATA = {
           },
           "tragamonedas": {
             "nota": 5,
-            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
+            "retroalimentacion": "Buen trabajo. Se realizó la entrega de un prototipo funcional. Felicidades por el trabajo."
           },
           "tinkercad": {
             "nota": 5,
@@ -1047,6 +1173,10 @@ const COURSES_DATA = {
           "pagina_bot": {
             "nota": 5,
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+          },
+          "tragamonedas_3d": {
+            "nota": 5,
+            "retroalimentacion": "Excelente trabajo se evidencia impresion 3d y funcionalidad del prototipo."
           }
         }
       }
