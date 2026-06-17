@@ -214,6 +214,19 @@ document.addEventListener("DOMContentLoaded", () => {
             tabsContainer.appendChild(btn);
         });
 
+        // Agregamos la pestaña extra para el resumen final
+        const btnResumen = document.createElement("button");
+        btnResumen.type = "button";
+        btnResumen.className = `tab-btn`;
+        btnResumen.innerHTML = `<i class="fa-solid fa-chart-pie"></i> <span>Resumen Final</span>`;
+        btnResumen.addEventListener("click", () => {
+            activeTab = "resumen_final";
+            tabsContainer.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+            btnResumen.classList.add("active");
+            renderActiveTab();
+        });
+        tabsContainer.appendChild(btnResumen);
+
         // Set initial active tab
         if (activeCourse.activities.length > 0) {
             activeTab = activeCourse.activities[0].id;
@@ -231,6 +244,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const activeCourse = COURSES_DATA[currentCourseKey];
         if (!activeCourse) return;
+
+        if (activeTab === "resumen_final") {
+            feedbackTitleEl.innerHTML = `<i class="fa-solid fa-clipboard-check text-accent-primary"></i> Resumen de Calificaciones`;
+            scoreCardTitleEl.textContent = "Nota Definitiva";
+
+            resultLayout.style.display = "grid";
+            noSubmissionContainer.style.display = "none";
+
+            let html = `<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">`;
+            html += `<tr><th style="text-align:left; border-bottom:1px solid var(--border-card); padding:8px;">Actividad</th><th style="text-align:center; border-bottom:1px solid var(--border-card); padding:8px;">Nota</th></tr>`;
+
+            let totalWeightedGrade = 0;
+            let totalWeight = 0;
+            activeCourse.activities.forEach(act => {
+                const gradeObj = currentStudent.notas[act.id];
+                const noteVal = gradeObj ? gradeObj.nota : 0.0;
+                totalWeightedGrade += noteVal * act.weight;
+                totalWeight += act.weight;
+                
+                let textColor = noteVal >= 3.0 ? "var(--text-primary)" : "var(--accent-danger)";
+                if (noteVal === 0.0) textColor = "var(--text-muted)";
+                
+                html += `<tr><td style="padding:8px; border-bottom:1px solid var(--border-card);">${act.name}</td><td style="text-align:center; padding:8px; border-bottom:1px solid var(--border-card); font-weight: bold; color: ${textColor};">${noteVal.toFixed(1)}</td></tr>`;
+            });
+            const avg = totalWeight > 0 ? (totalWeightedGrade / totalWeight) : 0.0;
+
+            html += `<tr><td style="padding:12px 8px; font-weight:bold; color:var(--accent-primary);">PROMEDIO FINAL DEFINITIVO</td><td style="text-align:center; padding:12px 8px; font-weight:bold; font-size:1.1rem; color:var(--accent-primary);">${avg.toFixed(2)}</td></tr>`;
+            html += `</table>`;
+
+            studentFeedbackEl.innerHTML = html;
+            scoreValEl.textContent = avg.toFixed(2);
+
+            const maxCircleLength = 314.159;
+            const percentage = avg / 5.0;
+            const dashOffset = maxCircleLength * (1 - percentage);
+            
+            radialBar.style.strokeDashoffset = maxCircleLength;
+            setTimeout(() => {
+                radialBar.style.strokeDashoffset = dashOffset;
+            }, 50);
+
+            updatePerformanceMetrics(avg, "resumen_final");
+            return;
+        }
 
         const actConfig = activeCourse.activities.find(a => a.id === activeTab);
         if (!actConfig) return;
