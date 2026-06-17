@@ -509,6 +509,13 @@ body {
     color: #0284c7;
 }
 
+.text-pagina {
+    color: #a855f7;
+}
+.light-theme .text-pagina {
+    color: #9333ea;
+}
+
 /* Tab Switching System */
 .tabs-container {
     display: flex;
