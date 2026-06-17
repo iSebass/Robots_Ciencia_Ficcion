@@ -373,8 +373,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+            "nota": 5,
+            "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
           }
         }
       },
@@ -565,8 +565,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+            "nota": 5,
+            "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
           }
         }
       },
@@ -597,8 +597,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+            "nota": 5,
+            "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
           }
         }
       },
