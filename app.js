@@ -515,8 +515,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <th>Código</th>
                 <th>Nombre Completo</th>
         `;
+        let totalCourseWeight = 0;
+        activeCourse.activities.forEach(act => totalCourseWeight += act.weight);
+
         activeCourse.activities.forEach(act => {
-            ths += `<th style="text-align: center;">${act.name} (${(act.weight * 100).toFixed(0)}%)</th>`;
+            let actualPercent = totalCourseWeight > 0 ? (act.weight / totalCourseWeight * 100) : 0;
+            ths += `<th style="text-align: center;">${act.name}<br><span style="font-size: 0.85em; opacity: 0.8;">(${actualPercent.toFixed(1)}%)</span></th>`;
         });
         ths += `
                 <th style="text-align: center;">Promedio Final</th>
