@@ -383,8 +383,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
           },
           "tragamonedas_3d": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 3.0,
+            "retroalimentacion": "No entregaron la actividad con los componentes técnicos solicitados."
           }
         }
       },
@@ -491,8 +491,8 @@ const COURSES_DATA = {
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
           },
           "tragamonedas_3d": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 3.0,
+            "retroalimentacion": "No entregaron la actividad con los componentes técnicos solicitados."
           }
         }
       },
@@ -687,8 +687,8 @@ const COURSES_DATA = {
             "retroalimentacion": "No se encontró registro de entrega o participación en los grupos de la actividad. Si hiciste parte de algún equipo y no fuiste registrado en la portada, por favor comunícate con el docente para revisar el caso."
           },
           "comic": {
-            "nota": 0,
-            "retroalimentacion": "No se encontró registro de entrega o participación en los grupos de la actividad. Si hiciste parte de algún equipo y no fuiste registrado en la portada, por favor comunícate con el docente para revisar el caso."
+            "nota": 3.0,
+            "retroalimentacion": "Entrega tardía. La actividad está incompleta, no tiene la bitácora de prompts solicitada en la actividad."
           },
           "cohete": {
             "nota": 5,
@@ -815,8 +815,8 @@ const COURSES_DATA = {
             "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
           },
           "tragamonedas_3d": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 3.0,
+            "retroalimentacion": "No entregaron la actividad con los componentes técnicos solicitados."
           }
         }
       },
@@ -959,8 +959,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
           },
           "tragamonedas_3d": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 3.0,
+            "retroalimentacion": "No entregaron la actividad con los componentes técnicos solicitados."
           }
         }
       },
@@ -995,8 +995,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
           },
           "tragamonedas_3d": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad, de ser un error por favor comunicarse con el docente."
+            "nota": 3.0,
+            "retroalimentacion": "No entregaron la actividad con los componentes técnicos solicitados."
           }
         }
       },
