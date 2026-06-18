@@ -683,8 +683,8 @@ const COURSES_DATA = {
         "programa": "2725",
         "notas": {
           "tribunal": {
-            "nota": 0,
-            "retroalimentacion": "No se encontró registro de entrega o participación en los grupos de la actividad. Si hiciste parte de algún equipo y no fuiste registrado en la portada, por favor comunícate con el docente para revisar el caso."
+            "nota": 3.0,
+            "retroalimentacion": "Entrega tardía."
           },
           "comic": {
             "nota": 3.0,
