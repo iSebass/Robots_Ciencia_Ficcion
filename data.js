@@ -379,8 +379,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 5,
-            "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+            "nota": 5.0,
+            "retroalimentacion": "Excelente trabajo, pagina con chat bot bien integrada."
           },
           "tragamonedas_3d": {
             "nota": 3.0,
@@ -487,8 +487,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+            "nota": 5.0,
+            "retroalimentacion": "Excelente trabajo, pagina con chat bot bien integrada."
           },
           "tragamonedas_3d": {
             "nota": 3.0,
@@ -811,8 +811,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 0,
-            "retroalimentacion": "No se evidencia entrega de la actividad. Reportar con el docente en caso de existir algun error."
+            "nota": 5.0,
+            "retroalimentacion": "Excelente trabajo, pagina con chat bot bien integrada."
           },
           "tragamonedas_3d": {
             "nota": 3.0,
@@ -955,8 +955,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 5,
-            "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+            "nota": 5.0,
+            "retroalimentacion": "Excelente trabajo, pagina con chat bot bien integrada."
           },
           "tragamonedas_3d": {
             "nota": 3.0,
@@ -991,8 +991,8 @@ const COURSES_DATA = {
             "retroalimentacion": "Buen trabajo. Se evidencia trabajo en clase. Felicidades por el trabajo."
           },
           "pagina_bot": {
-            "nota": 5,
-            "retroalimentacion": "Excelente pagina, cumple con la integracion del chatbot."
+            "nota": 5.0,
+            "retroalimentacion": "Excelente trabajo, pagina con chat bot bien integrada."
           },
           "tragamonedas_3d": {
             "nota": 3.0,
