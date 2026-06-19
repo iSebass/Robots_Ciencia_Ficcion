@@ -1275,5 +1275,1485 @@ const COURSES_DATA = {
         }
       }
     ]
+  },
+  "matematica_basica": {
+    "name": "Matemática Básica",
+    "subtitle": "Universidad del Valle - Sede Tuluá",
+    "activities": [
+      {
+        "id": "eva_f1",
+        "name": "Evaluación Formativa 1",
+        "weight": 0.13,
+        "icon": "fa-file-signature",
+        "colorClass": "text-primary",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Primera evaluación formativa del curso."
+      },
+      {
+        "id": "eva_f2",
+        "name": "Evaluación Formativa 2",
+        "weight": 0.13,
+        "icon": "fa-file-signature",
+        "colorClass": "text-primary",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Segunda evaluación formativa del curso."
+      },
+      {
+        "id": "eva_f",
+        "name": "Evaluación Final",
+        "weight": 0.14,
+        "icon": "fa-file-invoice",
+        "colorClass": "text-primary",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Evaluación final y cierre formativo."
+      },
+      {
+        "id": "pitch_conicas",
+        "name": "PITCH Cónicas",
+        "weight": 0.17,
+        "icon": "fa-bullhorn",
+        "colorClass": "text-accent-warning",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Presentación (PITCH) sobre el tema de Cónicas."
+      },
+      {
+        "id": "participacion",
+        "name": "Participación",
+        "weight": 0.17,
+        "icon": "fa-users",
+        "colorClass": "text-accent-success",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Participación activa durante las clases."
+      },
+      {
+        "id": "talleres",
+        "name": "Talleres",
+        "weight": 0.16,
+        "icon": "fa-book-open",
+        "colorClass": "text-accent-success",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Desarrollo de talleres en clase."
+      },
+      {
+        "id": "ae",
+        "name": "Autoevaluación",
+        "weight": 0.05,
+        "icon": "fa-user-check",
+        "colorClass": "text-accent-danger",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Autoevaluación del proceso formativo (AE)."
+      },
+      {
+        "id": "ce",
+        "name": "Coevaluación",
+        "weight": 0.05,
+        "icon": "fa-people-arrows",
+        "colorClass": "text-accent-danger",
+        "rubrics": [
+          {
+            "name": "Nota",
+            "weight": "100%"
+          }
+        ],
+        "description": "Coevaluación realizada por los pares (CE)."
+      }
+    ],
+    "students": [
+      {
+        "codigo": "202659683",
+        "nombre": "AGUDELO LABRADOR JHON MARIO",
+        "correo": "jhon.labrador@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569351",
+        "nombre": "ALPALA PISMAG YOHAN ALEXIS",
+        "correo": "yohan.alpala@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.3,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.3,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569253",
+        "nombre": "ALVAREZ HERNANDEZ MIGUEL ANGEL",
+        "correo": "miguel.alvarez.hernandez@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659532",
+        "nombre": "BAZAN MORENO LUIS FELIPE",
+        "correo": "bazan.luis@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659430",
+        "nombre": "BELTRAN VELASQUEZ KENNETH SANTIAGO",
+        "correo": "kenneth.beltran@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.3,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.4,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.4,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.4,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.4,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659605",
+        "nombre": "BOLIVAR JURADO GERMAN MANUEL",
+        "correo": "german.jurado@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.6,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.6,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569420",
+        "nombre": "CAICEDO PERLAZA JENIFER",
+        "correo": "jenifer.caicedo@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.6,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.4,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569069",
+        "nombre": "CASTAÑO SANCHEZ ISABELLA",
+        "correo": "isabella.castano.sanchez@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202477049",
+        "nombre": "CASTAÑO ZAPATA JUAN SEBASTIAN",
+        "correo": "juan.castano.zapata@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 1.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659639",
+        "nombre": "CORDOBA BAQUERO JOSE ERNEY",
+        "correo": "jose.erney.cordoba@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659563",
+        "nombre": "ESCOBAR LONDOÑO JOSE ALEJANDRO",
+        "correo": "jose.escobar.londono@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569352",
+        "nombre": "ESCOBAR MANRIQUE JUAN SEBASTIAN",
+        "correo": "juan.escobar.manrique@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202569516",
+        "nombre": "HERNANDEZ AMORTEGUI NICOLAS STIVEN",
+        "correo": "nicolas.hernandez@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659618",
+        "nombre": "HINCAPIE ZAPATA JUAN JOSE",
+        "correo": "juan.hincapie.zapata@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569398",
+        "nombre": "HOYOS PATIÑO CARLOS ALBERTO",
+        "correo": "carlos.hoyos.patino@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659631",
+        "nombre": "JARAMILLO CASTILLO SANTIAGO",
+        "correo": "santiago.jaramillo.castillo@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.6,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569338",
+        "nombre": "JIMENEZ GOMEZ SUSANA",
+        "correo": "susana.jimenez@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659590",
+        "nombre": "LADINO RIOS GUSTAVO ADOLFO",
+        "correo": "gustavo.ladino@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.2,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659592",
+        "nombre": "LOZADA GONZALEZ DEYVID ALEXIS",
+        "correo": "deyvid.lozada@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659604",
+        "nombre": "MATABAJOY ROMERO DANIEL ESTEBAN",
+        "correo": "matabajoy.daniel@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659421",
+        "nombre": "MELLIZO GUTIERREZ ERIC MAURICIO",
+        "correo": "eric.mellizo@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659676",
+        "nombre": "MORALES MORENO MARCO ANTONIO",
+        "correo": "marco.morales@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 2.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569101",
+        "nombre": "ORREGO LOPEZ DANIEL STEVEN",
+        "correo": "daniel.orrego@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659693",
+        "nombre": "PATIÑO OSORIO ANDRES FELIPE",
+        "correo": "andres.felipe.patino@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.8,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.3,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659630",
+        "nombre": "PIEDRAHITA MURILLO JHOAN SEBASTIAN",
+        "correo": "jhoan.piedrahita@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.3,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659601",
+        "nombre": "RAMIREZ GARCIA ALEXANDER",
+        "correo": "alexander.ramirez.garcia@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202569406",
+        "nombre": "RAMIREZ HERNANDEZ KENAN JOHEL",
+        "correo": "kenan.ramirez@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 1.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 1.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659520",
+        "nombre": "SALAZAR JARAMILLO VICTOR ALEJANDRO",
+        "correo": "victor.alejandro.salazar@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 5.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659542",
+        "nombre": "SANDOVAL CORTEZ YILMAN DAVID",
+        "correo": "yilman.sandoval@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202659426",
+        "nombre": "SEPULVEDA AGUDELO VALENTINA",
+        "correo": "valentina.sepulveda@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 4.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.6,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202559713",
+        "nombre": "VELASQUEZ CIFUENTES CRISTHIAN CAMILO",
+        "correo": "cristhian.cifuentes@correounivalle.edu.co",
+        "programa": "2724",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 4.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659733",
+        "nombre": "VELOZA FRANCO CARLOS ADRIAN",
+        "correo": "carlos.veloza@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.3,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ce": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      },
+      {
+        "codigo": "202477278",
+        "nombre": "VIVEROS ANGULO DAVID FERNANDO",
+        "correo": "david.angulo@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f2": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "talleres": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          }
+        }
+      },
+      {
+        "codigo": "202659411",
+        "nombre": "ZULETA RAMIREZ NICOLAS",
+        "correo": "nicolas.zuleta@correounivalle.edu.co",
+        "programa": "2725",
+        "notas": {
+          "eva_f1": {
+            "nota": 2.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f2": {
+            "nota": 3.5,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "eva_f": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "pitch_conicas": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "participacion": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "talleres": {
+            "nota": 3.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          },
+          "ae": {
+            "nota": 0.0,
+            "retroalimentacion": "No se evidencia nota registrada."
+          },
+          "ce": {
+            "nota": 2.0,
+            "retroalimentacion": "Calificación registrada de acuerdo a la actividad."
+          }
+        }
+      }
+    ]
   }
 };
